@@ -17,7 +17,7 @@ class MeuApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepOrangeAccent,
-          secondary: Colors.blueAccent,
+          secondary: Colors.brown,
         ),
       ),
       home: TeladDesign(),
@@ -25,17 +25,23 @@ class MeuApp extends StatelessWidget {
   }
 }
 
-class TeladDesign extends StatelessWidget {
+class TeladDesign extends StatefulWidget {
+  @override
+  State<TeladDesign> createState() => _TeladDesignState();
+}
+
+class _TeladDesignState extends State<TeladDesign> {
   @override
   Widget build(BuildContext context) {
     // Buscando as cores do tema definido lá no MaterialApp (Boa prática!)
     final cores = Theme.of(context).colorScheme;
-
+    String mensagem = "O jogo é sobre exploração espacial e loop temporal, onde você está preso nesse loop e precisa arrumar uma forma de descobrir o que está acontecendo.";
+    mudarTexto()
     return Scaffold(
       // Scaffold fornece a estrutura básica (Barra superior, corpo, etc)
       appBar: AppBar(
         title: const Text(
-          'Outer wilds',
+          'Outer Wilds',
           style: TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
@@ -45,24 +51,34 @@ class TeladDesign extends StatelessWidget {
         ),
         backgroundColor: cores.primary,
         centerTitle: true,
-      ),
+      ),        
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Card(
           child: Column(
             children: [
+              SizedBox(height: 20),
               Image.network(
                 'https://store-images.s-microsoft.com/image/apps.54574.14143081164842053.3ed0ca8b-d0ca-48af-9431-74e141bdd9ff.00560713-e7ae-4d29-9dcd-98f2cde17d0a?q=90&w=480&h=270',
               ),
+              SizedBox(height: 20),
               Text(
                 "Outer Wilds",
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
+                  color: cores.primary
                 ),
               ),
+              SizedBox(height: 20),
               Text(
-                  "O jogo é sobre exploração espacial e loop temporal, onde você está preso nesse loop e precisa arrumar uma forma de descobrir o que está acontecendo."),
+                  mensagem,
+                  
+                  style: TextStyle(
+                    color: cores.secondary
+                  ),
+              ),
+              SizedBox(height: 20),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   elevation: 2,
@@ -70,7 +86,7 @@ class TeladDesign extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8)),
                 ),
                 onPressed: () {
-                  print('Botão pressionado');
+                  mudarTexto();
                 },
                 child: Text('Ver detalhes'),
               )
