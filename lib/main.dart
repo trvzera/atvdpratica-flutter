@@ -52,7 +52,7 @@ class TeladDesign extends StatelessWidget {
           child: Column(
             children: [
               Image.network(
-                'https://www.nintendo.com/pt-br/store/products/outer-wilds-switch/?srsltid=AfmBOor3Lv20FxPEmkfqfycWKPFpwq-uq2MXz53OE06Do__2l16ADpHw',
+                'https://store-images.s-microsoft.com/image/apps.54574.14143081164842053.3ed0ca8b-d0ca-48af-9431-74e141bdd9ff.00560713-e7ae-4d29-9dcd-98f2cde17d0a?q=90&w=480&h=270',
               ),
               Text(
                 "Outer Wilds",
