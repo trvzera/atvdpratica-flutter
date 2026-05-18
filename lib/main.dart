@@ -31,12 +31,16 @@ class TeladDesign extends StatefulWidget {
 }
 
 class _TeladDesignState extends State<TeladDesign> {
+  String mensagem = "O jogo é sobre exploração espacial e loop temporal, onde você está preso nesse loop e precisa arrumar uma forma de descobrir o que está acontecendo.";
+    void mudarTexto(){
+      setState(() {
+      mensagem = "Outer wilds é conhecido por ser o melhor jogo do mundo";
+    });
+    }
   @override
   Widget build(BuildContext context) {
     // Buscando as cores do tema definido lá no MaterialApp (Boa prática!)
     final cores = Theme.of(context).colorScheme;
-    String mensagem = "O jogo é sobre exploração espacial e loop temporal, onde você está preso nesse loop e precisa arrumar uma forma de descobrir o que está acontecendo.";
-    mudarTexto()
     return Scaffold(
       // Scaffold fornece a estrutura básica (Barra superior, corpo, etc)
       appBar: AppBar(
@@ -61,6 +65,7 @@ class _TeladDesignState extends State<TeladDesign> {
               Image.network(
                 'https://store-images.s-microsoft.com/image/apps.54574.14143081164842053.3ed0ca8b-d0ca-48af-9431-74e141bdd9ff.00560713-e7ae-4d29-9dcd-98f2cde17d0a?q=90&w=480&h=270',
               ),
+              
               SizedBox(height: 20),
               Text(
                 "Outer Wilds",
@@ -73,9 +78,9 @@ class _TeladDesignState extends State<TeladDesign> {
               SizedBox(height: 20),
               Text(
                   mensagem,
-                  
+                  textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: cores.secondary
+                    color: cores.secondary,
                   ),
               ),
               SizedBox(height: 20),
