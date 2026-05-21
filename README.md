@@ -1,51 +1,64 @@
-## QUESTIONÁRIO 1
+# Atividade Prática — Flutter
 
-Perguntas
-1. Widget Image
-Qual é a diferença entre usar Image.network e Image.asset?
-Explique quando podemos usar cada um deles.
-Image.asset: Carrega imagens guardadas localmente no projeto. É ideal para elementos fixos (logos, ícones) que já fazem parte do app.
-Image.network: Busca imagens via URL na internet. É usado para conteúdo dinâmico que pode mudar (fotos de usuários, feeds).
+Meu **primeiro contato com Flutter**: app simples sobre o jogo *Outer Wilds*, feito para praticar widgets, tema Material 3 e mudança de estado na tela.
 
-2. Widget Column
-Explique a diferença entre:
-mainAxisAlignment e crossAxisAlignment
-O que cada uma dessas propriedades controla dentro de uma Column?
-mainAxisAlignment: Controla o alinhamento no eixo vertical (cima para baixo). Decide se os itens ficam no topo, centro ou espalhados.
-crossAxisAlignment: Controla o alinhamento no eixo horizontal (esquerda para direita). Decide se os itens ficam alinhados à esquerda, centro ou esticados.
+## O app
 
+- **MaterialApp** com tema (`ColorScheme.fromSeed`) e `DevicePreview` para testar em diferentes tamanhos de tela
+- **StatefulWidget** — texto sobre o jogo que muda ao tocar em "Ver detalhes" (`setState`)
+- **Layout** — `Scaffold`, `AppBar`, `Card`, `Image.network`, `Column`, `Padding` e `ElevatedButton`
 
-3. Widget Padding
-Por que é uma boa prática usar o widget Padding para criar espaçamento na tela?
-Explique por que isso é melhor do que tentar organizar a tela usando apenas espaços
-vazios no texto.
-É a melhor forma de criar espaçamento porque oferece precisão matemática. Usar "espaços vazios" no texto é instável, pois o tamanho do caractere muda conforme a fonte e o dispositivo. O Padding garante que o layout seja consistente e organizado em qualquer tela.
+Código principal em `lib/main.dart`.
 
-4. StatelessWidget
-Quando devemos usar um StatelessWidget?
-Explique com suas palavras o que significa dizer que uma tela ou widget é “sem estado”.
-Quando usar: Quando o conteúdo do widget é fixo e não muda após ser desenhado na tela.
-"Sem estado": Significa que o widget é estático. Ele não tem memória interna para mudar sua aparência (como cor ou texto) por conta própria em resposta a uma interação; ele apenas exibe o que recebeu quando foi criado.
+## Como executar
 
+```bash
+flutter pub get
+flutter run
+```
 
-## QUESTIONÁRIO 2
+---
 
-1. Por que agora foi necessário usar um StatefulWidget?
-Porque a sua tela deixou de ser estática. Enquanto o StatelessWidget é como uma pintura pronta que não muda, o StatefulWidget é como um quadro digital: ele consegue reagir a eventos (como cliques) e se redesenhar para mostrar algo novo sem que o usuário precise sair da tela.
+## Questionário 1
 
-2. Qual informação da tela muda quando o botão é pressionado?
-Geralmente, em exemplos básicos de Flutter (como o contador padrão), o que muda é o valor numérico exibido em um widget de Text. Visualmente, o usuário vê o número aumentar ou diminuir, mas tecnicamente, o widget de texto está sendo substituído por um novo com o valor atualizado.
+**1. Widget Image** — Qual é a diferença entre `Image.network` e `Image.asset`?
 
-3. Qual variável foi alterada dentro do setState()?
-No código padrão, a variável alterada é o _counter (ou qualquer variável que você tenha criado para armazenar o dado dinâmico). Ela guarda o "estado" atual daquela informação.
+- **Image.asset:** carrega imagens guardadas localmente no projeto. Ideal para logos e ícones fixos.
+- **Image.network:** busca imagens por URL na internet. Usado para conteúdo dinâmico.
 
-4. O que o setState() faz no Flutter?
-O setState() tem duas funções principais:
-Atualizar o valor: Ele executa a lógica de mudar a variável (ex: _counter++).
-Notificar o Framework: Ele avisa ao Flutter: "Ei, algo mudou aqui! Por favor, reconstrua (re-build) os widgets desta tela para que o usuário veja a nova informação".
+**2. Widget Column** — `mainAxisAlignment` e `crossAxisAlignment`
 
-5. O que poderia acontecer se a variável fosse alterada sem usar setState()?
-A variável seria alterada na memória do computador, mas a tela continuaria mostrando o valor antigo.
-O processador saberia que o número agora é 2, mas o usuário continuaria vendo o número 1.
-Isso acontece porque, sem o setState(), o Flutter não sabe que precisa "pintar" a tela novamente. O código rodaria "nos bastidores", mas a interface ficaria "congelada" no estado inicial.
+- **mainAxisAlignment:** alinhamento no eixo vertical (topo, centro, espaçamento).
+- **crossAxisAlignment:** alinhamento no eixo horizontal (esquerda, centro, esticar).
 
+**3. Widget Padding** — Por que usar Padding?
+
+Oferece espaçamento preciso e consistente em qualquer tela. Espaços vazios no texto variam com fonte e dispositivo.
+
+**4. StatelessWidget** — Quando usar?
+
+Quando o conteúdo é fixo e não muda após ser desenhado. "Sem estado" = o widget não guarda mudanças internas de aparência por conta própria.
+
+---
+
+## Questionário 2
+
+**1. Por que usar StatefulWidget?**
+
+A tela deixa de ser estática: precisa reagir ao botão e atualizar o texto na interface.
+
+**2. O que muda ao pressionar o botão?**
+
+O texto da variável `mensagem` (sinopse do jogo → frase sobre Outer Wilds).
+
+**3. Qual variável é alterada no `setState()`?**
+
+A variável `mensagem`.
+
+**4. O que o `setState()` faz?**
+
+Atualiza o valor e avisa o Flutter para reconstruir os widgets da tela com o novo conteúdo.
+
+**5. E se alterar a variável sem `setState()`?**
+
+O valor muda na memória, mas a tela continua mostrando o texto antigo — a interface não se redesenha.
