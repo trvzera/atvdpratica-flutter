@@ -1,3 +1,10 @@
+> **EN:** First Flutter app: Outer Wilds themed screen with StatefulWidget, setState, Material 3, and DevicePreview. Includes study questionnaires in the README.
+>
+> *The rest of this README is in Brazilian Portuguese (pt-BR).*
+
+
+---
+
 # Atividade Prática — Flutter
 
 Meu **primeiro contato com Flutter**: app simples sobre o jogo *Outer Wilds*, feito para praticar widgets, tema Material 3 e mudança de estado na tela.
